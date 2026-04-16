@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import os
 
-# Set aesthetic style and make fonts larger for easier reading
+
 sns.set_theme(style="whitegrid", palette="muted", font_scale=1.2)
 
 # 1. Load the dataset
@@ -80,7 +80,7 @@ plt.savefig(os.path.join(output_dir, 'clarity_vs_price.png'))
 plt.close()
 
 # F. Correlation Heatmap
-# Select only numeric columns for correlation
+
 plt.figure(figsize=(10, 8))
 numeric_df = df.select_dtypes(include=['number'])
 correlation_matrix = numeric_df.corr()
@@ -103,7 +103,7 @@ plt.close()
 # H. Cut vs Clarity Heatmap
 plt.figure(figsize=(12, 8))
 cut_clarity_counts = pd.crosstab(df['cut'], df['clarity'])
-# Reorder index and columns for logical progression
+
 cut_order = ['Fair', 'Good', 'Very Good', 'Premium', 'Ideal']
 clarity_order = ['I1', 'SI2', 'SI1', 'VS2', 'VS1', 'VVS2', 'VVS1', 'IF']
 cut_clarity_counts = cut_clarity_counts.reindex(index=cut_order, columns=clarity_order)
